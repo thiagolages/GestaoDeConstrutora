@@ -6,7 +6,6 @@ This is part of DCC603 - Software Enginieering class at UFMG - Universidade Fede
 **Group:**
 
 *Alice Diniz*
-
 *Hugo Zanini*
 
 *Lucas Hofner*

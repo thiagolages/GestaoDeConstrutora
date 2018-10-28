@@ -3,7 +3,8 @@ System to manage a construction company.
 
 This is part of DCC603 - Software Enginieering class at UFMG - Universidade Federal de Minas Gerais, Brazil.
 
-**Group:**\n
+**Group:**
+
 *Alice Diniz*
 *Hugo Zanini*
 *Lucas Hofner*

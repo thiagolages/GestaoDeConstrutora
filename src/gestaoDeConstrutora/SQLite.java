@@ -3,10 +3,15 @@ package gestaoDeConstrutora;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.ResultSet;
+
 
 public class SQLite
 {
 	static private Connection conn = null;
+	static private Statement stmt = null;
+	static private ResultSet res = null;
 	
 	public SQLite()
 	{     
@@ -19,7 +24,6 @@ public class SQLite
 	    	  System.out.print(e);
 	      }
 	}
-	
 	
 	public Connection connect()
 	{     
@@ -43,11 +47,34 @@ public class SQLite
 		}
 	}
 	
+	public void query(String query)
+	{
+		try
+		{
+			SQLite.stmt = SQLite.conn.createStatement();
+			SQLite.res = SQLite.stmt.executeQuery(query);
+		}
+		catch(SQLException e)
+		{
+			System.out.print(e);
+		}
+	}
+	
+	public ResultSet getResults()
+	{
+		return SQLite.res;
+	}
+	
 	public void disconnect()
 	{
 		try
 		{
-			SQLite.conn.close();
+			if(SQLite.res != null)
+				SQLite.res.close();
+			if(SQLite.stmt != null)
+				SQLite.stmt.close();
+			if(SQLite.conn != null)
+				SQLite.conn.close();
 		}
 		catch(SQLException e)
 		{

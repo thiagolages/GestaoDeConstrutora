@@ -1,6 +1,9 @@
 package gestaoDeConstrutora.SubsistemaObras;
 
-import java.util.List;
+import gestaoDeConstrutora.SubsistemaClientes.Cliente;
+import gestaoDeConstrutora.SubsistemaFuncionarios.Funcionario;
+import gestaoDeConstrutora.SubsistemaOrcamento.GerenciadorFinanceiro;
+import gestaoDeConstrutora.Util.Documento;
 import java.util.ArrayList;
 
 public class Obra {
@@ -15,17 +18,17 @@ public class Obra {
 	private Funcionario gerente;
 	private Funcionario engenheiro;
 	private Funcionario financeiro;
-	private List<Cliente> clientes;
-	private List<Documento> documentos;
+	private ArrayList<Cliente> clientes;
+	private ArrayList<Documento> documentos;
 	private GerenciadorFinanceiro gerenciadorFinanceiro;
 	private String status;
 	
 	
 	// Construtores
-	Obra (String id, String localizacao, String tipo, int numApartamentos, 
+	Obra (int id, String localizacao, String tipo, int numApartamentos, 
 			int numApartamentosDisponiveis, Funcionario gerente, 
 			Funcionario engenheiro, Funcionario financeiro,
-			GerenciadorFinanceiro gerenciadorFinanceiro, string status) {
+			GerenciadorFinanceiro gerenciadorFinanceiro, String status) {
 		this.id = id;
 		this.localizacao = localizacao;
 		this.tipo = tipo;
@@ -34,15 +37,15 @@ public class Obra {
 		this.gerente = gerente;
 		this.engenheiro = engenheiro;
 		this.financeiro = financeiro;
-		this.clientes = new ArrayList<Cliente>;
-		this.documentos = new ArrayList<Documento>;
+		this.clientes = new ArrayList<Cliente>();
+		this.documentos = new ArrayList<Documento>();
 		this.gerenciadorFinanceiro = gerenciadorFinanceiro;
 		this.status = status;
 	}
 	
-	// Métodos públicos	
+	// Metodos publicos	
 	public void adicionarObra() {
-		// adiciona uma nova obra à base de dados
+		// adiciona uma nova obra a base de dados
 	}
 	
 	public void atualizarObra() {
@@ -50,26 +53,26 @@ public class Obra {
 	}
 	
 	public void adicionarDocumento() {
-		// adiciona um novo documento à obra
+		// adiciona um novo documento a obra
 	}
 	
 	public void adicionarCliente() {
-		// adiciona um novo cliente à obra
+		// adiciona um novo cliente a obra
 	}
 	
 	public void adicionarFornecedor() {
-		// adiciona um novo fornecedor à obra
+		// adiciona um novo fornecedor a obra
 	}
 	
 	public void listarFuncionarios () {
-		// retorna a lista de funcionários associados à obra
+		// retorna a lista de funcionarios associados a obra
 	}
 	
 	public void listarClientes() {
-		// retorna a lista de clientes associados à obra
+		// retorna a lista de clientes associados a obra
 	}
 		
-	// Métodos privados	
+	// Metodos privados	
 	private void mudarStatus() {
 		// altera o status da obra
 	}

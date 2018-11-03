@@ -1,13 +1,13 @@
 package gestaoDeConstrutora.SubsistemaOrcamento;
 
-import java.util.List;
+import gestaoDeConstrutora.SubsistemaObras.Obra;
 import java.util.ArrayList;
 
 public class GerenciadorFinanceiro {
 
 	//Atributos
 	private Orcamento orcamento;
-	private List<Transacao> transacoes;
+	private ArrayList<Transacao> transacoes;
 	private Obra obra;
 	
 	//Construtores
@@ -18,7 +18,7 @@ public class GerenciadorFinanceiro {
 		this.obra = obra;
 	}
 	
-	//Métodos Públicos
+	//Metodos Publicos
 	public void enviarEdital() {
 		// envia edital ao fornecedor
 	}
@@ -29,7 +29,7 @@ public class GerenciadorFinanceiro {
 		return transacoes;
 	}
 	
-	//Métodos privados
+	//Metodos privados
 	private void coletarRespostas() {
 		// ? 
 	}

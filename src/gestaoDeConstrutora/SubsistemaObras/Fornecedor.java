@@ -8,13 +8,13 @@ public class Fornecedor {
 	private String produtoOferecido;
 	
 	// Construtores	
-	Fornecedor(String id, String nome, string produtoOferecido){
+	Fornecedor(int id, String nome, String produtoOferecido){
 		this.id = id;
 		this.nome = nome;
 		this.produtoOferecido = produtoOferecido;
 	}
 	
-	// Métodos Públicos	
+	// Metodos Publicos	
 	public void cadastrarFornecedor(String nome, String ProdutoOferecido) {
 		// cadastra o fornecedor, inserindo-o na base de dados. 
 	}

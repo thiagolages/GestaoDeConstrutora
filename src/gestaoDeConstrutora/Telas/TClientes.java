@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package telas;
+package gestaoDeConstrutora.Telas;
 
 /**
  *
  * @author hugozanini
  */
-public class Funcionarios extends javax.swing.JFrame {
+public class TClientes extends javax.swing.JFrame {
 
     /**
      * Creates new form Home
      */
-    public Funcionarios() {
+    public TClientes() {
         initComponents();
     }
 
@@ -41,11 +41,7 @@ public class Funcionarios extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(209, 95, 95));
 
-        cabecalho.setIcon(new javax.swing.ImageIcon("/home/hugozanini/Documents/UFMG/projects/GestaoDeConstrutora/cabecalho2 (1).png")); // NOI18N
-
-        func_icone.setIcon(new javax.swing.ImageIcon("/home/hugozanini/Documents/UFMG/projects/GestaoDeConstrutora/func.png")); // NOI18N
-
-        selecione_obra.setText("Digite o nome do funcionário:");
+        selecione_obra.setText("Digite o nome do Cliente:");
 
         pesquisar.setText("Pesquisar");
         pesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +129,7 @@ public class Funcionarios extends javax.swing.JFrame {
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         // TODO add your handling code here:
-        Home home = new Home();
+        THome home = new THome();
         home.setVisible(true);
         dispose();
     }//GEN-LAST:event_voltarActionPerformed
@@ -155,14 +151,26 @@ public class Funcionarios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Funcionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Funcionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Funcionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Funcionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -171,7 +179,7 @@ public class Funcionarios extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Funcionarios().setVisible(true);
+                new TClientes().setVisible(true);
             }
         });
     }

@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package telas;
+package gestaoDeConstrutora.Telas;
 
 /**
  *
  * @author hugozanini
  */
-public class Obras extends javax.swing.JFrame {
+public class TFuncionarios extends javax.swing.JFrame {
 
     /**
      * Creates new form Home
      */
-    public Obras() {
+    public TFuncionarios() {
         initComponents();
     }
 
@@ -29,40 +29,26 @@ public class Obras extends javax.swing.JFrame {
 
         cabecalho = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        obras_icone = new javax.swing.JLabel();
-        escolha = new javax.swing.JComboBox();
+        func_icone = new javax.swing.JLabel();
         selecione_obra = new javax.swing.JLabel();
-        status = new javax.swing.JButton();
-        documentos = new javax.swing.JButton();
-        transacoes = new javax.swing.JButton();
+        pesquisar = new javax.swing.JButton();
         voltar = new javax.swing.JButton();
+        busca_func = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        info_func = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(209, 95, 95));
 
-        cabecalho.setIcon(new javax.swing.ImageIcon("/home/hugozanini/Documents/UFMG/projects/GestaoDeConstrutora/cabecalho2 (1).png")); // NOI18N
+        selecione_obra.setText("Digite o nome do funcionário:");
 
-        obras_icone.setIcon(new javax.swing.ImageIcon("/home/hugozanini/Documents/UFMG/projects/GestaoDeConstrutora/obras.png")); // NOI18N
-
-        escolha.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolher...", "Obra 1", "Obra 2", "Obra 3", "Obra 4" }));
-        escolha.addActionListener(new java.awt.event.ActionListener() {
+        pesquisar.setText("Pesquisar");
+        pesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                escolhaActionPerformed(evt);
+                pesquisarActionPerformed(evt);
             }
         });
-
-        selecione_obra.setText("Selecione uma obra:");
-
-        status.setText("Status da Obra");
-        status.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                statusActionPerformed(evt);
-            }
-        });
-
-        documentos.setText("Listar documentos");
-
-        transacoes.setText("Listar transações");
 
         voltar.setText("Voltar");
         voltar.addActionListener(new java.awt.event.ActionListener() {
@@ -71,12 +57,18 @@ public class Obras extends javax.swing.JFrame {
             }
         });
 
+        info_func.setColumns(20);
+        info_func.setRows(5);
+        jScrollPane1.setViewportView(info_func);
+
+        jLabel1.setText("Informações:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 135, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(cabecalho)
                 .addGap(110, 110, 110))
             .addGroup(layout.createSequentialGroup()
@@ -86,17 +78,22 @@ public class Obras extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(89, 89, 89)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(obras_icone)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(voltar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(voltar)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(selecione_obra)
-                                .addComponent(escolha, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(status)
-                                .addComponent(transacoes)
-                                .addComponent(documentos)))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(func_icone)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(92, 92, 92)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(busca_func)
+                                        .addComponent(selecione_obra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(pesquisar, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(104, 104, 104)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -106,37 +103,33 @@ public class Obras extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(obras_icone)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(func_icone)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(selecione_obra)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(escolha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(status)
-                .addGap(18, 18, 18)
-                .addComponent(transacoes)
-                .addGap(18, 18, 18)
-                .addComponent(documentos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(voltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(busca_func, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pesquisar)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(voltar)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusActionPerformed
+    private void pesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_statusActionPerformed
-
-    private void escolhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escolhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_escolhaActionPerformed
+    }//GEN-LAST:event_pesquisarActionPerformed
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         // TODO add your handling code here:
-        Home home = new Home();
+        THome home = new THome();
         home.setVisible(true);
         dispose();
     }//GEN-LAST:event_voltarActionPerformed
@@ -158,34 +151,41 @@ public class Obras extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Obras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Obras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Obras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Obras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Obras().setVisible(true);
+                new TFuncionarios().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField busca_func;
     private javax.swing.JLabel cabecalho;
-    private javax.swing.JButton documentos;
-    private javax.swing.JComboBox<String> escolha;
+    private javax.swing.JLabel func_icone;
+    private javax.swing.JTextArea info_func;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel obras_icone;
+    private javax.swing.JButton pesquisar;
     private javax.swing.JLabel selecione_obra;
-    private javax.swing.JButton status;
-    private javax.swing.JButton transacoes;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

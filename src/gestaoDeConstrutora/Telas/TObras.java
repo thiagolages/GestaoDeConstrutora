@@ -1,20 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package telas;
+package gestaoDeConstrutora.Telas;
 
-/**
- *
- * @author hugozanini
- */
-public class Orcamentos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Home
-     */
-    public Orcamentos() {
+public class TObras extends javax.swing.JFrame {
+
+   
+    public TObras() {
         initComponents();
     }
 
@@ -30,39 +20,35 @@ public class Orcamentos extends javax.swing.JFrame {
         cabecalho = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         obras_icone = new javax.swing.JLabel();
-        escolha = new javax.swing.JComboBox<>();
-        selecione_orc = new javax.swing.JLabel();
-        aprovar_orc = new javax.swing.JButton();
-        consul_resp = new javax.swing.JButton();
-        enviar_orc = new javax.swing.JButton();
+        escolha = new javax.swing.JComboBox();
+        selecione_obra = new javax.swing.JLabel();
+        status = new javax.swing.JButton();
+        documentos = new javax.swing.JButton();
+        transacoes = new javax.swing.JButton();
         voltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(209, 95, 95));
 
-        cabecalho.setIcon(new javax.swing.ImageIcon("/home/hugozanini/Documents/UFMG/projects/GestaoDeConstrutora/cabecalho2 (1).png")); // NOI18N
-
-        obras_icone.setIcon(new javax.swing.ImageIcon("/home/hugozanini/Documents/UFMG/projects/GestaoDeConstrutora/orc.png")); // NOI18N
-
-        escolha.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolher...", "Orçamento 1", "Orçamento 2", "Orçamento 3", "Orçamento 4" }));
+        escolha.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolher...", "Obra 1", "Obra 2", "Obra 3", "Obra 4" }));
         escolha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 escolhaActionPerformed(evt);
             }
         });
 
-        selecione_orc.setText("Selecione um orçamento:");
+        selecione_obra.setText("Selecione uma obra:");
 
-        aprovar_orc.setText("Aprovar orçamento");
-        aprovar_orc.addActionListener(new java.awt.event.ActionListener() {
+        status.setText("Status da Obra");
+        status.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aprovar_orcActionPerformed(evt);
+                statusActionPerformed(evt);
             }
         });
 
-        consul_resp.setText("Consultar respostas dos fornecedores");
+        documentos.setText("Listar documentos");
 
-        enviar_orc.setText("Enviar orçamento para fornecedores");
+        transacoes.setText("Listar transações");
 
         voltar.setText("Voltar");
         voltar.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +62,7 @@ public class Orcamentos extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 135, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(cabecalho)
                 .addGap(110, 110, 110))
             .addGroup(layout.createSequentialGroup()
@@ -92,11 +78,11 @@ public class Orcamentos extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(voltar)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(selecione_orc)
+                                .addComponent(selecione_obra)
                                 .addComponent(escolha, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(aprovar_orc)
-                                .addComponent(enviar_orc)
-                                .addComponent(consul_resp)))))
+                                .addComponent(status)
+                                .addComponent(transacoes)
+                                .addComponent(documentos)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -109,15 +95,15 @@ public class Orcamentos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(obras_icone)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(selecione_orc)
+                        .addComponent(selecione_obra)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(escolha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(aprovar_orc)
+                .addComponent(status)
                 .addGap(18, 18, 18)
-                .addComponent(enviar_orc)
+                .addComponent(transacoes)
                 .addGap(18, 18, 18)
-                .addComponent(consul_resp)
+                .addComponent(documentos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(voltar)
                 .addGap(42, 42, 42))
@@ -126,9 +112,9 @@ public class Orcamentos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void aprovar_orcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aprovar_orcActionPerformed
+    private void statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_aprovar_orcActionPerformed
+    }//GEN-LAST:event_statusActionPerformed
 
     private void escolhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escolhaActionPerformed
         // TODO add your handling code here:
@@ -136,7 +122,7 @@ public class Orcamentos extends javax.swing.JFrame {
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         // TODO add your handling code here:
-        Home home = new Home();
+        THome home = new THome();
         home.setVisible(true);
         dispose();
     }//GEN-LAST:event_voltarActionPerformed
@@ -158,13 +144,13 @@ public class Orcamentos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Orcamentos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TObras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Orcamentos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TObras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Orcamentos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TObras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Orcamentos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TObras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -174,20 +160,20 @@ public class Orcamentos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Orcamentos().setVisible(true);
+                new TObras().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton aprovar_orc;
     private javax.swing.JLabel cabecalho;
-    private javax.swing.JButton consul_resp;
-    private javax.swing.JButton enviar_orc;
+    private javax.swing.JButton documentos;
     private javax.swing.JComboBox<String> escolha;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel obras_icone;
-    private javax.swing.JLabel selecione_orc;
+    private javax.swing.JLabel selecione_obra;
+    private javax.swing.JButton status;
+    private javax.swing.JButton transacoes;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,24 +1,24 @@
 package gestaoDeConstrutora.Util;
 
-import gestaoDeConstrutora.SubsistemaObras;
-import gestaoDeConstrutora.SubsistemaFuncionarios;
+import gestaoDeConstrutora.SubsistemaObras.*;
+import gestaoDeConstrutora.SubsistemaFuncionarios.*;
 
 public class Documento {
 
 	//Atributos
 	private int id;
-	private obra Obra;
-	priva int tipo;
+	private Obra obra;
+	private int tipo;
 	private int preco;
 	private String status;
 	private String arquivo;
 	private Funcionario responsavel;
 	
 	//Construtores
-	Documento (int id, obra Obra, int tipo, int preco, String status, String arquivo,
+	public Documento (int id, Obra obra, int tipo, int preco, String status, String arquivo,
 			   Funcionario responsavel) {
 		this.id = id;
-		this.Obra = obra;
+		this.obra = obra;
 		this.tipo = tipo;
 		this.preco = preco;
 		this.status = status;
@@ -26,7 +26,7 @@ public class Documento {
 		this.responsavel = responsavel;
 	}
 	
-	//Métodos Públicos	
+	//Metodos Publicos	
 	public void novoDocumento() {
 		// cria um novo documento
 	}
@@ -35,7 +35,7 @@ public class Documento {
 		// atualiza o status do documento, alterando-o no banco de dados
 	}
 	
-	//Métodos Privados
+	//Metodos Privados
 	private void gerarPagamento() {
 		// gera um novo pagamento 
 	}

@@ -3,18 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package telas;
+package gestaoDeConstrutora.Telas;
+
+import gestaoDeConstrutora.SubsistemaOrcamento.*;
 
 /**
  *
  * @author hugozanini
  */
-public class Home extends javax.swing.JFrame {
+public class THome extends javax.swing.JFrame {
 
     /**
      * Creates new form Home
      */
-    public Home() {
+    public THome() {
         initComponents();
     }
 
@@ -40,8 +42,6 @@ public class Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(209, 95, 95));
-
-        cabecalho.setIcon(new javax.swing.ImageIcon("/home/hugozanini/Documents/UFMG/projects/GestaoDeConstrutora/cabecalho2 (1).png")); // NOI18N
 
         obras.setText("Obras");
         obras.addActionListener(new java.awt.event.ActionListener() {
@@ -70,14 +70,6 @@ public class Home extends javax.swing.JFrame {
                 clientesActionPerformed(evt);
             }
         });
-
-        orcamento_icon.setIcon(new javax.swing.ImageIcon("/home/hugozanini/Documents/UFMG/projects/GestaoDeConstrutora/orc.png")); // NOI18N
-
-        funcionarios_icon.setIcon(new javax.swing.ImageIcon("/home/hugozanini/Documents/UFMG/projects/GestaoDeConstrutora/func.png")); // NOI18N
-
-        obras_icon.setIcon(new javax.swing.ImageIcon("/home/hugozanini/Documents/UFMG/projects/GestaoDeConstrutora/obras.png")); // NOI18N
-
-        clientes_icon.setIcon(new javax.swing.ImageIcon("/home/hugozanini/Documents/UFMG/projects/GestaoDeConstrutora/clientes.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,9 +128,9 @@ public class Home extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(funcionarios_icon)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(funcionarios)
-                            .addComponent(clientes)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(clientes)
+                            .addComponent(funcionarios)))
                     .addComponent(clientes_icon))
                 .addGap(51, 51, 51))
         );
@@ -149,7 +141,7 @@ public class Home extends javax.swing.JFrame {
     private void obrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obrasActionPerformed
         // TODO add your handling code here:
         
-        Obras obra = new Obras();
+        TObras obra = new TObras();
         obra.setVisible(true);
         dispose();
 
@@ -159,21 +151,21 @@ public class Home extends javax.swing.JFrame {
 
     private void orcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orcamentoActionPerformed
         // TODO add your handling code here:
-        Orcamentos orc = new Orcamentos();
+        TOrcamentos orc = new TOrcamentos();
         orc.setVisible(true);
         dispose();
     }//GEN-LAST:event_orcamentoActionPerformed
 
     private void funcionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcionariosActionPerformed
         // TODO add your handling code here:
-        Funcionarios func = new Funcionarios();
+        TFuncionarios func = new TFuncionarios();
         func.setVisible(true);
         dispose();
     }//GEN-LAST:event_funcionariosActionPerformed
 
     private void clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientesActionPerformed
         // TODO add your handling code here:
-        Clientes cli = new Clientes();
+        TClientes cli = new TClientes();
         cli.setVisible(true);
         dispose();
     }//GEN-LAST:event_clientesActionPerformed
@@ -195,20 +187,21 @@ public class Home extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(THome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(THome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(THome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(THome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Home().setVisible(true);
+                new THome().setVisible(true);
             }
         });
     }

@@ -27,7 +27,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="135" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               <Component id="cabecalho" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
           </Group>
@@ -45,11 +45,11 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="voltar" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="selecione_orc" min="-2" max="-2" attributes="0"/>
+                              <Component id="selecione_obra" min="-2" max="-2" attributes="0"/>
                               <Component id="escolha" min="-2" pref="253" max="-2" attributes="0"/>
-                              <Component id="aprovar_orc" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="enviar_orc" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="consul_resp" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="status" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="transacoes" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="documentos" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -68,17 +68,17 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="obras_icone" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="selecione_orc" min="-2" max="-2" attributes="0"/>
+                      <Component id="selecione_obra" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="escolha" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="aprovar_orc" min="-2" max="-2" attributes="0"/>
+              <Component id="status" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="enviar_orc" min="-2" max="-2" attributes="0"/>
+              <Component id="transacoes" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="consul_resp" min="-2" max="-2" attributes="0"/>
+              <Component id="documentos" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="31" max="32767" attributes="0"/>
               <Component id="voltar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
@@ -88,30 +88,20 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JLabel" name="cabecalho">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/home/hugozanini/Documents/UFMG/projects/GestaoDeConstrutora/cabecalho2 (1).png"/>
-        </Property>
-      </Properties>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
     </Component>
     <Component class="javax.swing.JLabel" name="obras_icone">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/home/hugozanini/Documents/UFMG/projects/GestaoDeConstrutora/orc.png"/>
-        </Property>
-      </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="escolha">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
             <StringItem index="0" value="Escolher..."/>
-            <StringItem index="1" value="Or&#xe7;amento 1"/>
-            <StringItem index="2" value="Or&#xe7;amento 2"/>
-            <StringItem index="3" value="Or&#xe7;amento 3"/>
-            <StringItem index="4" value="Or&#xe7;amento 4"/>
+            <StringItem index="1" value="Obra 1"/>
+            <StringItem index="2" value="Obra 2"/>
+            <StringItem index="3" value="Obra 3"/>
+            <StringItem index="4" value="Obra 4"/>
           </StringArray>
         </Property>
       </Properties>
@@ -119,30 +109,32 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="escolhaActionPerformed"/>
       </Events>
       <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox()"/>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Obras_escolha"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="selecione_orc">
+    <Component class="javax.swing.JLabel" name="selecione_obra">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Selecione um or&#xe7;amento:"/>
+        <Property name="text" type="java.lang.String" value="Selecione uma obra:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="aprovar_orc">
+    <Component class="javax.swing.JButton" name="status">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Aprovar or&#xe7;amento"/>
+        <Property name="text" type="java.lang.String" value="Status da Obra"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aprovar_orcActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="statusActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="consul_resp">
+    <Component class="javax.swing.JButton" name="documentos">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Consultar respostas dos fornecedores"/>
+        <Property name="text" type="java.lang.String" value="Listar documentos"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="enviar_orc">
+    <Component class="javax.swing.JButton" name="transacoes">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Enviar or&#xe7;amento para fornecedores"/>
+        <Property name="text" type="java.lang.String" value="Listar transa&#xe7;&#xf5;es"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="voltar">

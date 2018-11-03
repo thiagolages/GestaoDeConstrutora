@@ -15,7 +15,11 @@ public class Orcamento {
 	private String statusOrcamento;
 	
 	// Construtores
-	Orcamento(int custoMaximo, ArrayList<String> listaMateriais, int tempoMaximoEntrega,
+        public Orcamento(){
+            
+        }
+        
+	public Orcamento(int custoMaximo, ArrayList<String> listaMateriais, int tempoMaximoEntrega,
 			String statusMaterial, int precoPorApartamento, int numApartamentosIncluidos,
 			String statusOrcamento) {
 		this.custoMaximo = custoMaximo;
@@ -27,21 +31,21 @@ public class Orcamento {
 		this.statusOrcamento = statusOrcamento;
 	}
 	
-	//Métodos Públicos
+	//Metodos Publicos
 	public void criarNovo() {
-		// cria novo orçamento, adicionando-o ao banco de dados
+		// cria novo orcamento, adicionando-o ao banco de dados
 	}
 	
 	public void aprovar() {
-		// aprova o orçamento, alterando seu status
+		// aprova o orcamento, alterando seu status
 	}
 	
 	public void atualizarStatusMaterial() {
-		// atualiza o status do material, realizando tal alteração no banco
+		// atualiza o status do material, realizando tal alteracao no banco
 	}
 	
-	public atualizarStatusOrcamento {
-		// atualiza o status do orcamento, realizando tal alteração no banco
+	public void atualizarStatusOrcamento() {
+		// atualiza o status do orcamento, realizando tal alteracao no banco
 	}
 }
 

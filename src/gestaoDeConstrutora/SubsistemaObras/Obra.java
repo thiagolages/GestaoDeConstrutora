@@ -74,7 +74,7 @@ public class Obra {
 		// retorna a lista de clientes associados a obra
 	}
 		
-	public bool mudarStatus(String novoStatus) {
+	public Boolean mudarStatus(String novoStatus) {
 		// altera o status da obra
 
 		SQLite db = new SQLite();

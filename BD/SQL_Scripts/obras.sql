@@ -2,7 +2,7 @@ CREATE TABLE Obras
 (
   obra_id INTEGER PRIMARY KEY AUTOINCREMENT,
   local TEXT NOT NULL,
-  tipo INTEGER NOT NULL,
+  tipo TEXT NOT NULL,
   num_aps_disp INTEGER NOT NULL,
   status TEXT NOT NULL,
   gerente_id INTEGER NOT NULL,

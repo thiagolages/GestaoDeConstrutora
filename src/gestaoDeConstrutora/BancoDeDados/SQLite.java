@@ -1,4 +1,4 @@
-package gestaoDeConstrutora;
+package gestaoDeConstrutora.BancoDeDados;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

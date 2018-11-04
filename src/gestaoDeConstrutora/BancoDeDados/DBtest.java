@@ -1,4 +1,4 @@
-package gestaoDeConstrutora;
+package gestaoDeConstrutora.BancoDeDados;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

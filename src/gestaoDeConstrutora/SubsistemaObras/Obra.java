@@ -4,6 +4,8 @@ import gestaoDeConstrutora.SubsistemaClientes.Cliente;
 import gestaoDeConstrutora.SubsistemaFuncionarios.Funcionario;
 import gestaoDeConstrutora.SubsistemaOrcamento.GerenciadorFinanceiro;
 import gestaoDeConstrutora.Util.Documento;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Obra {
@@ -25,7 +27,7 @@ public class Obra {
 	
 	
 	// Construtores
-	Obra (int id, String localizacao, String tipo, int numApartamentos, 
+	public Obra (int id, String localizacao, String tipo, int numApartamentos, 
 			int numApartamentosDisponiveis, Funcionario gerente, 
 			Funcionario engenheiro, Funcionario financeiro,
 			GerenciadorFinanceiro gerenciadorFinanceiro, String status) {
@@ -72,9 +74,53 @@ public class Obra {
 		// retorna a lista de clientes associados a obra
 	}
 		
-	// Metodos privados	
-	private void mudarStatus() {
+	public bool mudarStatus(String novoStatus) {
 		// altera o status da obra
+
+		SQLite db = new SQLite();
+		db.connect();
+
+		try
+		{
+			db.query("UPDATE Obras SET status = " + novoStatus + " WHERE obra_id = " + this.id);
+		}
+		catch (SQLException e)
+		{
+			System.out.print(e);
+			db.disconnect();
+			return false;
+		}
+
+		this.status = novoStatus;
+		db.disconnect();
+		return true;
+	}
+
+	public String visualizarStatus() {
+		SQLite db = new SQLite();
+		db.connect();
+
+		db.query("SELECT status FROM Obras WHERE obra_id = " + this.id);
+		ResultSet x = db.getResults();
+		
+		try
+		{
+			while(x.next())
+			{
+				String status = x.getString("status");
+			}
+		}
+		catch(SQLException e)
+		{
+			db.disconnect();
+			System.out.print(e);
+			return "";
+		}
+
+		System.out.print(status);
+		db.disconnect();
+
+		return status;
 	}
 	
 }

@@ -1,5 +1,6 @@
 package gestaoDeConstrutora.SubsistemaObras;
 
+
 import gestaoDeConstrutora.BancoDeDados.BD;
 import gestaoDeConstrutora.SubsistemaClientes.Cliente;
 import gestaoDeConstrutora.SubsistemaFuncionarios.Funcionario;
@@ -77,6 +78,7 @@ public class Obra {
 		// retorna a lista de clientes associados a obra
 	}
 		
+<<<<<<< HEAD
 	public void mudarStatus(String novoStatus) {
 		//muda o status da obra
 		

@@ -77,8 +77,7 @@ public class Obra {
 	public void listarClientes() {
 		// retorna a lista de clientes associados a obra
 	}
-		
-<<<<<<< HEAD
+
 	public void mudarStatus(String novoStatus) {
 		//muda o status da obra
 		

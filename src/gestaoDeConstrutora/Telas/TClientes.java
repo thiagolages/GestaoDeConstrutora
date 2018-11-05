@@ -5,6 +5,11 @@
  */
 package gestaoDeConstrutora.Telas;
 
+import java.util.ArrayList;
+
+import gestaoDeConstrutora.BancoDeDados.BD;
+import gestaoDeConstrutora.SubsistemaClientes.*;
+
 /**
  *
  * @author hugozanini
@@ -14,7 +19,13 @@ public class TClientes extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
-    public TClientes() {
+	private ArrayList<Cliente> clientes;
+	private SubsistemaClientes subsistemaClientes;
+	
+	
+    public TClientes(SubsistemaClientes subsistemaClientes) {
+    	this.subsistemaClientes = subsistemaClientes;
+    	this.clientes = this.subsistemaClientes.pesquisaClientePeloNome("");
         initComponents();
     }
 
@@ -37,11 +48,13 @@ public class TClientes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         info_func = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
+        ArrayList<javax.swing.JLabel> labels  = new ArrayList<javax.swing.JLabel>(); 
+        
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(209, 95, 95));
 
-        selecione_obra.setText("Digite o nome do Cliente:");
+        selecione_obra.setText("Filtrar cliente:");
 
         pesquisar.setText("Pesquisar");
         pesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -58,10 +71,17 @@ public class TClientes extends javax.swing.JFrame {
         });
 
         info_func.setColumns(20);
-        info_func.setRows(5);
+        info_func.setRows(10);
         jScrollPane1.setViewportView(info_func);
+        
+        int i;
+        for (i=0; i< this.clientes.size(); i++) {
+        	info_func.append(this.clientes.get(i).getNome() + "\n");
+        }
+        
+        
 
-        jLabel1.setText("Informações:");
+        jLabel1.setText("Clientes:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,11 +145,18 @@ public class TClientes extends javax.swing.JFrame {
 
     private void pesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarActionPerformed
         // TODO add your handling code here:
+    	String textoBusca = this.busca_func.getText();
+    	this.clientes = this.subsistemaClientes.pesquisaClientePeloNome(textoBusca);
+    	this.info_func.setText("");
+    	 int i;
+         for (i=0; i< this.clientes.size(); i++) {
+         	this.info_func.append(this.clientes.get(i).getNome() + "\n");
+         }
     }//GEN-LAST:event_pesquisarActionPerformed
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         // TODO add your handling code here:
-        THome home = new THome();
+        THome home = new THome(new BD());
         home.setVisible(true);
         dispose();
     }//GEN-LAST:event_voltarActionPerformed
@@ -179,7 +206,8 @@ public class TClientes extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TClientes().setVisible(true);
+            	SubsistemaClientes susbsistemaClientes = new SubsistemaClientes(new BD());
+                new TClientes(susbsistemaClientes).setVisible(true);
             }
         });
     }

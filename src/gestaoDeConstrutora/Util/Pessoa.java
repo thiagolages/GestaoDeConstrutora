@@ -9,14 +9,8 @@ public abstract class Pessoa {
     // Atributos
     protected int id;
 	protected String nome;
-    protected ArrayList<Obra> obras;
     protected int permissoes;
-    
-    // Getters
-    public String getNome() {
-    	return this.nome;
-    }
-    
+        
     // Construtores
     public Pessoa(int id, String nome, int permissoes) {
             this.id = id;
@@ -24,8 +18,6 @@ public abstract class Pessoa {
             this.permissoes = permissoes;
     }
     
-	public abstract ArrayList<Obra> getObras();
-
     // M�todos P�blicos	
     public void login() {
             // loga a pessoa no sistema
@@ -54,10 +46,6 @@ public abstract class Pessoa {
 
 	public void setPermissoes(int permissoes) {
 		this.permissoes = permissoes;
-	}
-
-	public void setObras(ArrayList<Obra> obras) {
-		this.obras = obras;
 	}
 	
 }

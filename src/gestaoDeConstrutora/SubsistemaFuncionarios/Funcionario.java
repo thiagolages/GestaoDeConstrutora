@@ -26,4 +26,9 @@ public class Funcionario extends Pessoa{
 		return null;
 	}
 	
+	// Getters
+	public String getDepartamento() {
+		return departamento;
+	}
+	
 }

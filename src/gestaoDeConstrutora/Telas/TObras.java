@@ -1,5 +1,6 @@
 package gestaoDeConstrutora.Telas;
 
+import gestaoDeConstrutora.BancoDeDados.BD;
 
 public class TObras extends javax.swing.JFrame {
 
@@ -122,7 +123,7 @@ public class TObras extends javax.swing.JFrame {
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         // TODO add your handling code here:
-        THome home = new THome();
+        THome home = new THome(new BD());
         home.setVisible(true);
         dispose();
     }//GEN-LAST:event_voltarActionPerformed

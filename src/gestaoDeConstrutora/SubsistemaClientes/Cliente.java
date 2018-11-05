@@ -10,9 +10,8 @@ public class Cliente extends Pessoa {
 	protected int statusPagamento;
 	
 	// Construtores
-	public Cliente(int id, String nome, ArrayList<Obra> obras, int permissoes,
-			int statusPagamento) {
-		super(id, nome, obras, permissoes);
+	public Cliente(int id, String nome, int permissoes) {
+		super(id, nome, permissoes);
                 this.statusPagamento = statusPagamento;
 	}
 	
@@ -23,6 +22,12 @@ public class Cliente extends Pessoa {
 	
 	public void realizarPagamento() {
 		// realiza o pagamento alterando o status
+	}
+
+	@Override
+	public ArrayList<Obra> getObras() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
 

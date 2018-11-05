@@ -49,9 +49,39 @@ public class Obra {
 		this.status = status;
 	}
 	
+	public Obra (int id, String localizacao, String tipo, int numApartamentos, 
+			int numApartamentosDisponiveis, Funcionario gerente, 
+			Funcionario engenheiro, Funcionario financeiro,
+			String status, Orcamento orcamento, ArrayList<Transacao> transacoes,
+			ArrayList<Cliente> clientes, ArrayList<Documento> documentos) {
+		this.id = id;
+		this.localizacao = localizacao;
+		this.tipo = tipo;
+		this.numApartamentos = numApartamentos;
+		this.numApartamentosDisponiveis = numApartamentosDisponiveis;
+		this.gerente = gerente;
+		this.engenheiro = engenheiro;
+		this.financeiro = financeiro;
+		this.clientes = new ArrayList<Cliente>();
+		this.documentos = new ArrayList<Documento>();
+		this.gerenciadorFinanceiro = new GerenciadorFinanceiro(orcamento, transacoes);
+		this.status = status;
+		this.clientes = clientes;
+		this.documentos = documentos;
+	}
+	
 	// Metodos publicos	
 	public void adicionarObra() {
 		// adiciona uma nova obra a base de dados
+	}
+	
+	public int[] getIdsFuncs()
+	{
+		int idFuncs[] = new int[3];
+		idFuncs[0] = this.gerente.getId();
+		idFuncs[1] = this.engenheiro.getId();
+		idFuncs[2] = this.financeiro.getId();
+		return idFuncs;
 	}
 	
 	public void atualizarObra() {
@@ -78,7 +108,6 @@ public class Obra {
 		// retorna a lista de clientes associados a obra
 	}
 		
-<<<<<<< HEAD
 	public void mudarStatus(String novoStatus) {
 		//muda o status da obra
 		
@@ -87,35 +116,103 @@ public class Obra {
 		this.status = novoStatus;
 		
 	}
-	
-	//deixei comentado pq acho que não precisa dessa função (pelo menos não desse jeito), pq seria só pegar do prórpio objeto, não?
-	
-	
-	/*public String visualizarStatus() {
-		SQLite db = new SQLite();
-		db.connect();
 
-		db.query("SELECT status FROM Obras WHERE obra_id = " + this.id);
-		ResultSet x = db.getResults();
-		
-		try
-		{
-			while(x.next())
-			{
-				String status = x.getString("status");
-			}
-		}
-		catch(SQLException e)
-		{
-			db.disconnect();
-			System.out.print(e);
-			return "";
-		}
+	public int getId() {
+		return id;
+	}
 
-		System.out.print(status);
-		db.disconnect();
+	public void setId(int id) {
+		this.id = id;
+	}
 
+	public String getLocalizacao() {
+		return localizacao;
+	}
+
+	public void setLocalizacao(String localizacao) {
+		this.localizacao = localizacao;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public int getNumApartamentos() {
+		return numApartamentos;
+	}
+
+	public void setNumApartamentos(int numApartamentos) {
+		this.numApartamentos = numApartamentos;
+	}
+
+	public int getNumApartamentosDisponiveis() {
+		return numApartamentosDisponiveis;
+	}
+
+	public void setNumApartamentosDisponiveis(int numApartamentosDisponiveis) {
+		this.numApartamentosDisponiveis = numApartamentosDisponiveis;
+	}
+
+	public Funcionario getGerente() {
+		return gerente;
+	}
+
+	public void setGerente(Funcionario gerente) {
+		this.gerente = gerente;
+	}
+
+	public Funcionario getEngenheiro() {
+		return engenheiro;
+	}
+
+	public void setEngenheiro(Funcionario engenheiro) {
+		this.engenheiro = engenheiro;
+	}
+
+	public Funcionario getFinanceiro() {
+		return financeiro;
+	}
+
+	public void setFinanceiro(Funcionario financeiro) {
+		this.financeiro = financeiro;
+	}
+
+	public ArrayList<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(ArrayList<Cliente> clientes) {
+		this.clientes = clientes;
+	}
+
+	public ArrayList<Documento> getDocumentos() {
+		return documentos;
+	}
+
+	public void setDocumentos(ArrayList<Documento> documentos) {
+		this.documentos = documentos;
+	}
+
+	public GerenciadorFinanceiro getGerenciadorFinanceiro() {
+		return gerenciadorFinanceiro;
+	}
+
+	public void setGerenciadorFinanceiro(GerenciadorFinanceiro gerenciadorFinanceiro) {
+		this.gerenciadorFinanceiro = gerenciadorFinanceiro;
+	}
+
+	public String getStatus() {
 		return status;
-	}*/
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	
 	
 }

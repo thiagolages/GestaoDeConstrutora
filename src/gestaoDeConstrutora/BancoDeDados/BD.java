@@ -44,6 +44,12 @@ public class BD implements InterfaceBD {
 			Funcionario engenheiro = getFuncionarioPorID(engId);
 			Funcionario financeiro = getFuncionarioPorID(finId);
 			
+			//Procura por clientes
+			ArrayList<Cliente> clientes = getClientePorObra(id);
+			
+			//Procura por documentos
+			ArrayList<Documento> docs = getDocumentoPorObra(id);
+			
 			//Procura por orcamento e transacoes
 			Orcamento orc = getOrcamentoPorID(orcId);
 			ArrayList<Transacao> trans = getTransacaoPorObra(id);
@@ -66,9 +72,16 @@ public class BD implements InterfaceBD {
 	}
 
 	@Override
-	public void updateObra(Obra obra) {
-		// TODO Auto-generated method stub
-
+	public void updateObra(Obra obra) 
+	{
+		/*int funcs[] = obra.getIdsFuncs();
+		SQLite db = new SQLite();
+		try
+		{
+			//Conecta e realiza query
+			db.connect();
+			db.query( "UPDATE Obras "
+					+ "SET  );*/
 	}
 
 	@Override
@@ -219,8 +232,37 @@ public class BD implements InterfaceBD {
 
 	@Override
 	public Orcamento getOrcamentoPorID(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		SQLite db = new SQLite();
+		Orcamento orc= null;
+		try
+		{
+			//Conecta e realiza query
+			db.connect();
+			db.query("SELECT * FROM Orcamentos WHERE orc_id = " + id);
+			ResultSet res = db.getResults();
+			
+			//Pega resultado
+			res.next();
+			String lista = res.getString("lista");
+			int dataEntrega = res.getInt("data_entrega");
+			String statusMaterial = res.getString("status_material");
+			String statusPagamento = res.getString("status_pagamento");
+			int nAps = res.getInt("num_aps");
+			float precoAp = res.getFloat("preco_ap");
+			float custo = res.getFloat("custo");
+			
+			//TODO criar data de admissão no banco
+			orc  = new Orcamento(custo, lista, dataEntrega, statusMaterial, precoAp, nAps, statusPagamento);
+		}
+		catch(SQLException e)
+		{
+			System.out.print(e);
+		}
+		finally
+		{
+			db.disconnect();
+		}
+		return orc;
 	}
 
 	@Override
@@ -338,6 +380,74 @@ public class BD implements InterfaceBD {
 			db.disconnect();
 		}
 		return trans;
+	}
+
+	@Override
+	public ArrayList<Cliente> getClientePorObra(int idObra) {
+		SQLite db = new SQLite();
+		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+		try
+		{
+			//Conecta e realiza query
+			db.connect();
+			db.query("SELECT * FROM Clientes NATURAL JOIN Clientes_Obras WHERE obra_id = " + idObra);
+			ResultSet res = db.getResults();
+			while(res.next())
+			{
+				int clientId = res.getInt("client_id");
+				int perm = res.getInt("permissao");
+				String nome = res.getString("nome");
+				String senha = res.getString("senha");
+				
+				Cliente thisCliente = new Cliente(clientId, nome, perm);
+				clientes.add(thisCliente);
+			}
+		}
+		catch(SQLException e)
+		{
+			System.out.print(e);
+		}
+		finally
+		{
+			db.disconnect();
+		}
+		return clientes;
+	}
+
+	@Override
+	public ArrayList<Documento> getDocumentoPorObra(int idObra) {
+		SQLite db = new SQLite();
+		ArrayList<Documento> docs = new ArrayList<Documento>();
+		try
+		{
+			//Conecta e realiza query
+			db.connect();
+			db.query( "SELECT doc_id, tipo, arquivo, Documentos.status "
+					+ "FROM Documentos JOIN Transacoes "
+					+ "ON Transacoes.trans_id = Documentos.trans_id  "
+					+ "WHERE obra_id = " + idObra);
+			ResultSet res = db.getResults();
+			while(res.next())
+			{
+				int docId = res.getInt("doc_id");
+				int tipo = res.getInt("tipo");
+				String arquivo = res.getString("arquivo");
+				String status = res.getString("status");
+				
+				
+				Documento thisDoc = new Documento(docId, tipo, arquivo, status);
+				docs.add(thisDoc);
+			}
+		}
+		catch(SQLException e)
+		{
+			System.out.print(e);
+		}
+		finally
+		{
+			db.disconnect();
+		}
+		return docs;
 	}
 
 }

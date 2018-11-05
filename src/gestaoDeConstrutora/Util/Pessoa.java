@@ -12,11 +12,6 @@ public abstract class Pessoa {
     protected ArrayList<Obra> obras;
     protected int permissoes;
     
-    // Getters
-    public String getNome() {
-    	return this.nome;
-    }
-    
     // Construtores
     public Pessoa(int id, String nome, int permissoes) {
             this.id = id;
@@ -40,8 +35,15 @@ public abstract class Pessoa {
     }
     
     //Getters e Setters
+    
+    
+    
     public String getNome() {
 		return nome;
+	}
+
+	public int getId() {
+		return id;
 	}
 
 	public void setNome(String nome) {

@@ -6,11 +6,11 @@ import java.util.ArrayList;
 public class Orcamento {
 
 	//Atributos
-	private int custoMaximo;
-	private List<String> listaMateriais;
+	private float custoMaximo;
+	private String listaMateriais;
 	private int tempoMaximoEntrega;
 	private String statusMaterial;
-	private int precoPorApartamento;
+	private float precoPorApartamento;
 	private int numApartamentosIncluidos;
 	private String statusOrcamento;
 	
@@ -19,8 +19,8 @@ public class Orcamento {
             
         }
         
-	public Orcamento(int custoMaximo, ArrayList<String> listaMateriais, int tempoMaximoEntrega,
-			String statusMaterial, int precoPorApartamento, int numApartamentosIncluidos,
+	public Orcamento(float custoMaximo, String listaMateriais, int tempoMaximoEntrega,
+			String statusMaterial, float precoPorApartamento, int numApartamentosIncluidos,
 			String statusOrcamento) {
 		this.custoMaximo = custoMaximo;
 		this.listaMateriais = listaMateriais;

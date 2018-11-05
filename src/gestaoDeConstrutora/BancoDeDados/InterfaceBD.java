@@ -27,6 +27,7 @@ public interface InterfaceBD
 	
 	public void mudarStatus(int id, String novoStatus);
 	
+	
 	//CRUD Cliente
 	
 	public Cliente getClientePorID(int id);
@@ -38,6 +39,8 @@ public interface InterfaceBD
 	public void deleteCliente(Cliente cliente);
 	
 	public Cliente deleteClientePorID(int id);
+	
+	ArrayList<Cliente> getClientePorObra(int idObra);
 	
 	
 	//CRUD Funcionário
@@ -105,5 +108,7 @@ public interface InterfaceBD
 	public void deleteDocumento(Documento documento);
 	
 	public Documento deleteDocumentoPorID(int id);
+	
+	ArrayList<Documento> getDocumentoPorObra(int idObra);
 	
 }

@@ -10,7 +10,12 @@ public class Pessoa {
     protected String nome;
     protected ArrayList<Obra> obras;
     protected int permissoes;
-
+    
+    // Getters
+    public String getNome() {
+    	return this.nome;
+    }
+    
     // Construtores
     public Pessoa(int id, String nome, ArrayList<Obra> obras, int permissoes) {
             this.id = id;

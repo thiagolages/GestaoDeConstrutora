@@ -1,5 +1,6 @@
 package gestaoDeConstrutora.SubsistemaObras;
 
+import gestaoDeConstrutora.BancoDeDados.SQLite;
 import gestaoDeConstrutora.SubsistemaClientes.Cliente;
 import gestaoDeConstrutora.SubsistemaFuncionarios.Funcionario;
 import gestaoDeConstrutora.SubsistemaOrcamento.GerenciadorFinanceiro;
@@ -80,16 +81,7 @@ public class Obra {
 		SQLite db = new SQLite();
 		db.connect();
 
-		try
-		{
-			db.query("UPDATE Obras SET status = " + novoStatus + " WHERE obra_id = " + this.id);
-		}
-		catch (SQLException e)
-		{
-			System.out.print(e);
-			db.disconnect();
-			return false;
-		}
+		db.query("UPDATE Obras SET status = " + novoStatus + " WHERE obra_id = " + this.id);
 
 		this.status = novoStatus;
 		db.disconnect();

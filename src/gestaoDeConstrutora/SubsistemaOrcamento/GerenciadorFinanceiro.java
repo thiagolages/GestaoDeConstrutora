@@ -11,11 +11,9 @@ public class GerenciadorFinanceiro {
 	private Obra obra;
 	
 	//Construtores
-	GerenciadorFinanceiro(Orcamento orcamento, ArrayList<Transacao> transacoes,
-			Obra obra) {
+	public GerenciadorFinanceiro(Orcamento orcamento, ArrayList<Transacao> transacoes) {
 		this.orcamento = orcamento;
 		this.transacoes = transacoes;
-		this.obra = obra;
 	}
 	
 	//Metodos Publicos

@@ -56,6 +56,7 @@ public class SQLite
 		}
 		catch(SQLException e)
 		{
+			System.out.println("Erro capturado em query()");
 			System.out.print(e);
 		}
 	}
@@ -70,14 +71,25 @@ public class SQLite
 		try
 		{
 			if(SQLite.res != null)
+			{
 				SQLite.res.close();
+				SQLite.res = null;
+			}
 			if(SQLite.stmt != null)
+			{
 				SQLite.stmt.close();
+				SQLite.stmt = null;
+			}
 			if(SQLite.conn != null)
+			{
 				SQLite.conn.close();
+				SQLite.conn = null;
+				
+			}
 		}
 		catch(SQLException e)
 		{
+			System.out.println("Erro capturado em disconect()");
 			System.out.print(e);
 		}
 	}

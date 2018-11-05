@@ -1,8 +1,11 @@
 package gestaoDeConstrutora.SubsistemaObras;
 
+import gestaoDeConstrutora.BancoDeDados.BD;
 import gestaoDeConstrutora.SubsistemaClientes.Cliente;
 import gestaoDeConstrutora.SubsistemaFuncionarios.Funcionario;
 import gestaoDeConstrutora.SubsistemaOrcamento.GerenciadorFinanceiro;
+import gestaoDeConstrutora.SubsistemaOrcamento.Orcamento;
+import gestaoDeConstrutora.SubsistemaOrcamento.Transacao;
 import gestaoDeConstrutora.Util.Documento;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -30,7 +33,7 @@ public class Obra {
 	public Obra (int id, String localizacao, String tipo, int numApartamentos, 
 			int numApartamentosDisponiveis, Funcionario gerente, 
 			Funcionario engenheiro, Funcionario financeiro,
-			GerenciadorFinanceiro gerenciadorFinanceiro, String status) {
+			String status, Orcamento orcamento, ArrayList<Transacao> transacoes) {
 		this.id = id;
 		this.localizacao = localizacao;
 		this.tipo = tipo;
@@ -41,7 +44,7 @@ public class Obra {
 		this.financeiro = financeiro;
 		this.clientes = new ArrayList<Cliente>();
 		this.documentos = new ArrayList<Documento>();
-		this.gerenciadorFinanceiro = gerenciadorFinanceiro;
+		this.gerenciadorFinanceiro = new GerenciadorFinanceiro(orcamento, transacoes);
 		this.status = status;
 	}
 	
@@ -74,29 +77,19 @@ public class Obra {
 		// retorna a lista de clientes associados a obra
 	}
 		
-	public Boolean mudarStatus(String novoStatus) {
-		// altera o status da obra
-
-		SQLite db = new SQLite();
-		db.connect();
-
-		try
-		{
-			db.query("UPDATE Obras SET status = " + novoStatus + " WHERE obra_id = " + this.id);
-		}
-		catch (SQLException e)
-		{
-			System.out.print(e);
-			db.disconnect();
-			return false;
-		}
-
+	public void mudarStatus(String novoStatus) {
+		//muda o status da obra
+		
+		BD bd = new BD();
+		bd.mudarStatus(this.id, novoStatus);
 		this.status = novoStatus;
-		db.disconnect();
-		return true;
+		
 	}
-
-	public String visualizarStatus() {
+	
+	//deixei comentado pq acho que não precisa dessa função (pelo menos não desse jeito), pq seria só pegar do prórpio objeto, não?
+	
+	
+	/*public String visualizarStatus() {
 		SQLite db = new SQLite();
 		db.connect();
 
@@ -121,6 +114,6 @@ public class Obra {
 		db.disconnect();
 
 		return status;
-	}
+	}*/
 	
 }

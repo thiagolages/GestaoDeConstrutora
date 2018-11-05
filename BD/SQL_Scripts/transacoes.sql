@@ -1,9 +1,9 @@
 CREATE TABLE Transacoes
 (
   trans_id INTEGER PRIMARY KEY AUTOINCREMENT,
-  status INTEGER NOT NULL,
+  status TEXT NOT NULL,
   preco REAL NOT NULL,
-  prazo TEXT NOT NULL,
+  prazo INT NOT NULL,
   descricao TEXT NOT NULL,
   obra_id INTEGER NOT NULL,
     FOREIGN KEY (obra_id) REFERENCES Obras(obra_id)

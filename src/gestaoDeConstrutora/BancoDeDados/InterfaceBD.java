@@ -1,5 +1,7 @@
 package gestaoDeConstrutora.BancoDeDados;
 
+import java.util.ArrayList;
+
 import gestaoDeConstrutora.SubsistemaClientes.Cliente;
 import gestaoDeConstrutora.SubsistemaFuncionarios.Funcionario;
 import gestaoDeConstrutora.SubsistemaObras.Fornecedor;
@@ -23,6 +25,7 @@ public interface InterfaceBD
 	
 	public Obra deleteObraPorID(int id);
 	
+	public void mudarStatus(int id, String novoStatus);
 	
 	//CRUD Cliente
 	
@@ -87,6 +90,8 @@ public interface InterfaceBD
 	public void deleteTransacao(Transacao transacao);
 	
 	public Transacao deleteTransacaoPorID(int id);
+	
+	public ArrayList <Transacao> getTransacaoPorObra(int idObra);
 	
 	
 	//CRUD Documento

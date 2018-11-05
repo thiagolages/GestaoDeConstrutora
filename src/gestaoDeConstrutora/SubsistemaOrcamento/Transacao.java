@@ -7,14 +7,23 @@ public class Transacao {
 
 	//Atributos
 	private int id;
-	private String valor;
+	private float valor;
 	private String descricao;
 	private String status;
 	private int prazo;
 	
-	//Métodos Públicos
+	public Transacao(int id, float valor, String descricao, String status, int prazo)
+	{
+		this.id = id;
+		this. valor = valor;
+		this.descricao = descricao;
+		this.status = status;
+		this.prazo = prazo;
+	}
+	
+	//Mï¿½todos Pï¿½blicos
 	public void atualizarStatus() {
-		// atualizar o status da obra, realizando a alteração no banco de dados
+		// atualizar o status da obra, realizando a alteraï¿½ï¿½o no banco de dados
 	}
 	
 	public void criarTransacao() {

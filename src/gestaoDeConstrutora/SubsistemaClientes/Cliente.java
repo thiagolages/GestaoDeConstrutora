@@ -10,9 +10,9 @@ public class Cliente extends Pessoa {
 	protected int statusPagamento;
 	
 	// Construtores
+
 	public Cliente(int id, String nome, int permissoes) {
 		super(id, nome, permissoes);
-                this.statusPagamento = statusPagamento;
 	}
 	
 	// Metodos Publicos

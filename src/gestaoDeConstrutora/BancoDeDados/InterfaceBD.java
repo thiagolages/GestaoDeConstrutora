@@ -30,6 +30,8 @@ public interface InterfaceBD
 	
 	//CRUD Cliente
 	
+	public ArrayList<Cliente> getClientes();
+	
 	public Cliente getClientePorID(int id);
 	
 	public void updateCliente(Cliente cliente);
@@ -44,6 +46,8 @@ public interface InterfaceBD
 	
 	
 	//CRUD Funcionário
+	
+	public ArrayList<Funcionario> getFuncionarios();
 	
 	public Funcionario getFuncionarioPorID(int id);
 	

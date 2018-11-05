@@ -5,6 +5,13 @@
  */
 package gestaoDeConstrutora.Telas;
 
+import java.util.ArrayList;
+
+import gestaoDeConstrutora.BancoDeDados.BD;
+import gestaoDeConstrutora.SubsistemaClientes.Cliente;
+import gestaoDeConstrutora.SubsistemaClientes.SubsistemaClientes;
+import gestaoDeConstrutora.SubsistemaFuncionarios.*;
+
 /**
  *
  * @author hugozanini
@@ -14,7 +21,13 @@ public class TFuncionarios extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
-    public TFuncionarios() {
+	
+	private ArrayList<Funcionario> funcionarios;
+	private SubsistemaFuncionarios subsistemaFuncionarios;
+	
+    public TFuncionarios(SubsistemaFuncionarios subsistemaFuncionarios) {
+    	this.subsistemaFuncionarios = subsistemaFuncionarios;
+    	this.funcionarios = this.subsistemaFuncionarios.pesquisaFuncionarioPeloNome("");
         initComponents();
     }
 
@@ -37,6 +50,7 @@ public class TFuncionarios extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         info_func = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
+        ArrayList<javax.swing.JLabel> labels  = new ArrayList<javax.swing.JLabel>(); 
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(209, 95, 95));
@@ -60,6 +74,13 @@ public class TFuncionarios extends javax.swing.JFrame {
         info_func.setColumns(20);
         info_func.setRows(5);
         jScrollPane1.setViewportView(info_func);
+        
+        int i;
+        for (i=0; i< this.funcionarios.size(); i++) {
+        	info_func.append(this.funcionarios.get(i).getNome());
+        	info_func.append(" \\ Departamento: " + this.funcionarios.get(i).getDepartamento());
+        	info_func.append("\n");
+        }
 
         jLabel1.setText("Informações:");
 
@@ -125,11 +146,22 @@ public class TFuncionarios extends javax.swing.JFrame {
 
     private void pesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarActionPerformed
         // TODO add your handling code here:
+    	info_func.setText("");
+    	String nomeFuncionario = busca_func.getText();
+    	this.funcionarios = subsistemaFuncionarios.pesquisaFuncionarioPeloNome(nomeFuncionario);
+    	
+        int i;
+        for (i=0; i< this.funcionarios.size(); i++) {
+        	info_func.append(this.funcionarios.get(i).getNome());
+        	info_func.append(" \\ Departamento: " + this.funcionarios.get(i).getDepartamento());
+        	info_func.append("\n");
+        }
+        
     }//GEN-LAST:event_pesquisarActionPerformed
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         // TODO add your handling code here:
-        THome home = new THome();
+        THome home = new THome(new BD());
         home.setVisible(true);
         dispose();
     }//GEN-LAST:event_voltarActionPerformed
@@ -171,7 +203,7 @@ public class TFuncionarios extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TFuncionarios().setVisible(true);
+                new TFuncionarios(new SubsistemaFuncionarios(new BD())).setVisible(true);
             }
         });
     }

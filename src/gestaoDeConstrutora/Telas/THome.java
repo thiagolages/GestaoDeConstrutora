@@ -5,7 +5,10 @@
  */
 package gestaoDeConstrutora.Telas;
 
-import gestaoDeConstrutora.SubsistemaOrcamento.*;
+import gestaoDeConstrutora.BancoDeDados.BD;
+import gestaoDeConstrutora.BancoDeDados.InterfaceBD;
+import gestaoDeConstrutora.SubsistemaClientes.SubsistemaClientes;
+import gestaoDeConstrutora.SubsistemaFuncionarios.SubsistemaFuncionarios;
 
 /**
  *
@@ -16,7 +19,11 @@ public class THome extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
-    public THome() {
+	
+	InterfaceBD bancoDeDados;
+	
+    public THome(BD bancoDeDados) {
+    	this.bancoDeDados = bancoDeDados;
         initComponents();
     }
 
@@ -158,14 +165,16 @@ public class THome extends javax.swing.JFrame {
 
     private void funcionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcionariosActionPerformed
         // TODO add your handling code here:
-        TFuncionarios func = new TFuncionarios();
+    	SubsistemaFuncionarios subsistemaFuncionarios = new SubsistemaFuncionarios(new BD());
+        TFuncionarios func = new TFuncionarios(subsistemaFuncionarios);
         func.setVisible(true);
         dispose();
     }//GEN-LAST:event_funcionariosActionPerformed
 
     private void clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientesActionPerformed
         // TODO add your handling code here:
-        TClientes cli = new TClientes();
+    	SubsistemaClientes subSistemaClientes = new SubsistemaClientes(this.bancoDeDados);
+        TClientes cli = new TClientes(subSistemaClientes);
         cli.setVisible(true);
         dispose();
     }//GEN-LAST:event_clientesActionPerformed
@@ -201,7 +210,7 @@ public class THome extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new THome().setVisible(true);
+                new THome(new BD()).setVisible(true);
             }
         });
     }

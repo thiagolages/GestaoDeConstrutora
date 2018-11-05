@@ -2,14 +2,18 @@ package gestaoDeConstrutora.SubsistemaFuncionarios;
 
 import java.util.ArrayList;
 
+import gestaoDeConstrutora.BancoDeDados.InterfaceBD;
+
 public class SubsistemaFuncionarios {
 	
 	// Atributos
 	public ArrayList<Funcionario> funcionarios;
+	private InterfaceBD bancoDeDados;
 	
 	// Construtores
-	public SubsistemaFuncionarios() {
-		// this.funcionarios = bancoDeDados.GetFuncionarios
+	public SubsistemaFuncionarios(InterfaceBD bancoDeDados) {
+		this.bancoDeDados = bancoDeDados;
+		this.funcionarios = bancoDeDados.getFuncionarios();
 	}
 	
 	// Metodos publicos

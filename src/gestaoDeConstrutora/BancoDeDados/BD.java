@@ -111,6 +111,45 @@ public class BD implements InterfaceBD {
 		db.query("UPDATE Obras SET status = " + novoStatus + " WHERE obra_id = " + id);
 		db.disconnect();
 	}
+	
+	@Override
+	public ArrayList<Cliente> getClientes() {
+		SQLite db = new SQLite();
+		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+		
+		try
+		{
+			//Conecta e realiza query
+			db.connect();
+			db.query("SELECT * FROM Clientes");
+			ResultSet res = db.getResults();
+			
+			//Pega resultado
+			while (res.next())
+			{
+				int id = res.getInt("client_id");
+				String nome = res.getString("nome");
+				//TODO definir o que fazer com o campo de senha
+				int permissao = res.getInt("permissao");
+				String senha = res.getString("senha");
+				
+				Cliente cliente = new Cliente(id, nome, permissao);
+				
+				clientes.add(cliente);
+				
+				//TODO criar data de admissão no banco
+			}
+		}
+		catch(SQLException e)
+		{
+			System.out.print(e);
+		}
+		finally
+		{
+			db.disconnect();
+		}
+		return clientes;
+	}
 
 	@Override
 	public Cliente getClientePorID(int id) {
@@ -142,6 +181,44 @@ public class BD implements InterfaceBD {
 		return null;
 	}
 
+	@Override
+	public ArrayList<Funcionario> getFuncionarios() {
+		SQLite db = new SQLite();
+		ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
+		
+		try
+		{
+			//Conecta e realiza query
+			db.connect();
+			db.query("SELECT * FROM Funcionarios");
+			ResultSet res = db.getResults();
+			
+			//Pega resultado
+			while (res.next()) {
+				int id = res.getInt("func_id");
+				String nome = res.getString("nome");
+				String dep = res.getString("departamento");
+				//TODO definir o que fazer com o campo de senha
+				String senha = res.getString("senha");
+				int perm = res.getInt("permissao");
+				float salario = res.getFloat("salario");
+				
+				//TODO criar data de admissão no banco
+				Funcionario func  = new Funcionario(id, nome, perm, salario, new Date(), dep);
+				funcionarios.add(func);
+			}	
+		}
+		catch(SQLException e)
+		{
+			System.out.print(e);
+		}
+		finally
+		{
+			db.disconnect();
+		}
+		return funcionarios;
+	}
+	
 	@Override
 	public Funcionario getFuncionarioPorID(int id) {
 		SQLite db = new SQLite();

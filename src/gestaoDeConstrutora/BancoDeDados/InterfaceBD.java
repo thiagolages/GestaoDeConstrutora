@@ -74,6 +74,10 @@ public interface InterfaceBD
 	
 	public Fornecedor deleteFornecedorPorID(int id);
 	
+	public ArrayList<Fornecedor> getFornecedorPorObra(int idObra);
+	
+	public ArrayList<Fornecedor> getFornecedores();
+	
 	
 	//CRUD Orcamento
 	

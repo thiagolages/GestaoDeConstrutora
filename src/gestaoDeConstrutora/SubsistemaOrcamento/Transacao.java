@@ -21,6 +21,14 @@ public class Transacao {
 		this.prazo = prazo;
 	}
 	
+	public Transacao(float valor, String descricao, String status, int prazo)
+	{
+		this. valor = valor;
+		this.descricao = descricao;
+		this.status = status;
+		this.prazo = prazo;
+	}
+	
 	//M�todos P�blicos
 	public void atualizarStatus() {
 		// atualizar o status da obra, realizando a altera��o no banco de dados

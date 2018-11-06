@@ -47,6 +47,9 @@ public class BD implements InterfaceBD {
 			//Procura por clientes
 			ArrayList<Cliente> clientes = getClientePorObra(id);
 			
+			//Procura por Fornecedores
+			ArrayList<Fornecedor> forns = getFornecedorPorObra(id);
+			
 			//Procura por documentos
 			ArrayList<Documento> docs = getDocumentoPorObra(id);
 			
@@ -57,7 +60,7 @@ public class BD implements InterfaceBD {
 			//Cria objeto obra e retorna-o
 			//TODO criar aps totais e restantes
 			obra = new Obra(id, local, tipo, nAps, nAps, gerente, engenheiro, financeiro, 
-					status, orc, trans);
+					status, orc, trans, clientes, docs, forns);
 		}
 		catch(SQLException e)
 		{
@@ -167,15 +170,11 @@ public class BD implements InterfaceBD {
 			{
 				int id = res.getInt("client_id");
 				String nome = res.getString("nome");
-				//TODO definir o que fazer com o campo de senha
 				int permissao = res.getInt("permissao");
-				String senha = res.getString("senha");
 				
 				Cliente cliente = new Cliente(id, nome, permissao);
 				
 				clientes.add(cliente);
-				
-				//TODO criar data de admissão no banco
 			}
 		}
 		catch(SQLException e)
@@ -236,8 +235,6 @@ public class BD implements InterfaceBD {
 				int id = res.getInt("func_id");
 				String nome = res.getString("nome");
 				String dep = res.getString("departamento");
-				//TODO definir o que fazer com o campo de senha
-				String senha = res.getString("senha");
 				int perm = res.getInt("permissao");
 				float salario = res.getFloat("salario");
 				
@@ -272,8 +269,6 @@ public class BD implements InterfaceBD {
 			res.next();
 			String nome = res.getString("nome");
 			String dep = res.getString("departamento");
-			//TODO definir o que fazer com o campo de senha
-			String senha = res.getString("senha");
 			int perm = res.getInt("permissao");
 			float salario = res.getFloat("salario");
 			
@@ -548,7 +543,6 @@ public class BD implements InterfaceBD {
 				int clientId = res.getInt("client_id");
 				int perm = res.getInt("permissao");
 				String nome = res.getString("nome");
-				String senha = res.getString("senha");
 				
 				Cliente thisCliente = new Cliente(clientId, nome, perm);
 				clientes.add(thisCliente);
@@ -599,6 +593,69 @@ public class BD implements InterfaceBD {
 			db.disconnect();
 		}
 		return docs;
+	}
+	
+	@Override
+	public ArrayList<Fornecedor> getFornecedorPorObra(int idObra) {
+		SQLite db = new SQLite();
+		ArrayList<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
+		try
+		{
+			//Conecta e realiza query
+			db.connect();
+			db.query("SELECT * FROM Fornecedores NATURAL JOIN Fornecedores_Obras WHERE obra_id = " + idObra);
+			ResultSet res = db.getResults();
+			while(res.next())
+			{
+				int fornId = res.getInt("forn_id");
+				String produto = res.getString("produtos");
+				String nome = res.getString("nome");
+				
+				Fornecedor thisForn = new Fornecedor(fornId, nome, produto);
+				fornecedores.add(thisForn);
+			}
+		}
+		catch(SQLException e)
+		{
+			System.out.print(e);
+		}
+		finally
+		{
+			db.disconnect();
+		}
+		return fornecedores;
+	}
+	
+	public ArrayList<Fornecedor> getFornecedores(){
+		SQLite db = new SQLite();
+		ArrayList<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
+		try
+		{
+			//Conecta e realiza query
+			db.connect();
+			
+			//Ordenaremos para facilitar outras funções
+			db.query("SELECT * FROM Fornecedores ORDER BY produtos");
+			ResultSet res = db.getResults();
+			while(res.next())
+			{
+				int fornId = res.getInt("forn_id");
+				String produto = res.getString("produtos");
+				String nome = res.getString("nome");
+				
+				Fornecedor thisForn = new Fornecedor(fornId, nome, produto);
+				fornecedores.add(thisForn);
+			}
+		}
+		catch(SQLException e)
+		{
+			System.out.print(e);
+		}
+		finally
+		{
+			db.disconnect();
+		}
+		return fornecedores;
 	}
 
 }

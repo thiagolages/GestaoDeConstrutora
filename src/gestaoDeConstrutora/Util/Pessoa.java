@@ -10,13 +10,22 @@ public abstract class Pessoa {
     protected int id;
 	protected String nome;
     protected int permissoes;
+    protected String senha;
 
     // Construtores
-    public Pessoa(int id, String nome, int permissoes) {
+    public Pessoa(int id, String nome, String senha, int permissoes) {
             this.id = id;
             this.nome = nome;
             this.permissoes = permissoes;
+            this.senha = senha;
     }
+    
+    public Pessoa(int id, String nome, int permissoes) {
+        this.id = id;
+        this.nome = nome;
+        this.permissoes = permissoes;
+}
+    
     
     // M�todos P�blicos	
     public void login() {

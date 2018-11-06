@@ -8,7 +8,7 @@ public class Fornecedor {
 	private String produtoOferecido;
 	
 	// Construtores	
-	Fornecedor(int id, String nome, String produtoOferecido){
+	public Fornecedor(int id, String nome, String produtoOferecido){
 		this.id = id;
 		this.nome = nome;
 		this.produtoOferecido = produtoOferecido;
@@ -22,4 +22,27 @@ public class Fornecedor {
 	public void atualizarFornecedor() {
 		// atualiza o fornecedor existente na base de dados
 	}
+	
+	//Getters e Setters
+	public int getId() {
+		return id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getProdutoOferecido() {
+		return produtoOferecido;
+	}
+
+	public void setProdutoOferecido(String produtoOferecido) {
+		this.produtoOferecido = produtoOferecido;
+	}
+	
+	
 }

@@ -32,7 +32,7 @@ public class SQLite
 			try 
 		    {
 				SQLite.conn = DriverManager.getConnection("jdbc:sqlite:.//BD//database.db");
-				System.out.println("Opened database successfully");
+				//System.out.println("Opened database successfully");
 				return SQLite.conn;
 		    }
 		    catch(SQLException e)

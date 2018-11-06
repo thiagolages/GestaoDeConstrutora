@@ -26,6 +26,7 @@ public class Obra {
 	private Funcionario financeiro;
 	private ArrayList<Cliente> clientes;
 	private ArrayList<Documento> documentos;
+	private ArrayList<Fornecedor> fornecedores;
 	private GerenciadorFinanceiro gerenciadorFinanceiro;
 	private String status;
 	
@@ -53,7 +54,8 @@ public class Obra {
 			int numApartamentosDisponiveis, Funcionario gerente, 
 			Funcionario engenheiro, Funcionario financeiro,
 			String status, Orcamento orcamento, ArrayList<Transacao> transacoes,
-			ArrayList<Cliente> clientes, ArrayList<Documento> documentos) {
+			ArrayList<Cliente> clientes, ArrayList<Documento> documentos, 
+			ArrayList<Fornecedor> fornecedores) {
 		this.id = id;
 		this.localizacao = localizacao;
 		this.tipo = tipo;
@@ -62,12 +64,11 @@ public class Obra {
 		this.gerente = gerente;
 		this.engenheiro = engenheiro;
 		this.financeiro = financeiro;
-		this.clientes = new ArrayList<Cliente>();
-		this.documentos = new ArrayList<Documento>();
 		this.gerenciadorFinanceiro = new GerenciadorFinanceiro(orcamento, transacoes);
 		this.status = status;
 		this.clientes = clientes;
 		this.documentos = documentos;
+		this.fornecedores = fornecedores;
 	}
 	
 	// Metodos publicos	

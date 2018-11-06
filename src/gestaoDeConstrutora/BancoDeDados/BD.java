@@ -113,6 +113,44 @@ public class BD implements InterfaceBD {
 	}
 	
 	@Override
+	public ArrayList<Obra> getObras() {
+		SQLite db = new SQLite();
+		ArrayList<Obra> obras = new ArrayList<Obra>();
+		try
+		{
+			//Conecta e realiza query
+			db.connect();
+			db.query("SELECT * FROM Obras");
+			ResultSet res = db.getResults();
+			
+			//Pega resultado
+			while(res.next())
+			{
+				String local  = res.getString("local");
+				String tipo  = res.getString("tipo");
+				String status  = res.getString("status");
+				int nAps  = res.getInt("num_aps_disp");
+				int id = res.getInt("obra_id");
+				
+				//TODO Criar Aps restantes
+				Obra thisObra = new Obra(id, local, tipo, nAps, nAps, null, null, null, 
+						status, null, null);
+				obras.add(thisObra);
+				
+			}
+		}
+		catch(SQLException e)
+		{
+			System.out.println(e);
+		}
+		finally
+		{
+			db.disconnect();
+		}
+		return obras;
+	}
+	
+	@Override
 	public ArrayList<Cliente> getClientes() {
 		SQLite db = new SQLite();
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
@@ -328,7 +366,6 @@ public class BD implements InterfaceBD {
 			float precoAp = res.getFloat("preco_ap");
 			float custo = res.getFloat("custo");
 			
-			//TODO criar data de admissão no banco
 			orc  = new Orcamento(custo, lista, dataEntrega, statusMaterial, precoAp, nAps, statusPagamento);
 		}
 		catch(SQLException e)
@@ -364,6 +401,43 @@ public class BD implements InterfaceBD {
 	public Orcamento deleteOrcamentoPorID(int id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public ArrayList<Orcamento> getOrcamentos()
+	{
+		SQLite db = new SQLite();
+		ArrayList<Orcamento> orcs = new ArrayList<Orcamento>();
+		try
+		{
+			//Conecta e realiza query
+			db.connect();
+			db.query("SELECT * FROM Orcamentos");
+			ResultSet res = db.getResults();
+			
+			//Pega resultado
+			while(res.next())
+			{
+				String lista = res.getString("lista");
+				int dataEntrega = res.getInt("data_entrega");
+				String statusMaterial = res.getString("status_material");
+				String statusPagamento = res.getString("status_pagamento");
+				int nAps = res.getInt("num_aps");
+				float precoAp = res.getFloat("preco_ap");
+				float custo = res.getFloat("custo");
+				
+				Orcamento thisOrc  = new Orcamento(custo, lista, dataEntrega, statusMaterial, precoAp, nAps, statusPagamento);
+				orcs.add(thisOrc);
+			}
+		}
+		catch(SQLException e)
+		{
+			System.out.print(e);
+		}
+		finally
+		{
+			db.disconnect();
+		}
+		return orcs;
 	}
 
 	@Override

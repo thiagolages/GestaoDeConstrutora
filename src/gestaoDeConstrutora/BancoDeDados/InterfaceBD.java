@@ -27,6 +27,8 @@ public interface InterfaceBD
 	
 	public void mudarStatus(int id, String novoStatus);
 	
+	public ArrayList<Obra> getObras();
+	
 	
 	//CRUD Cliente
 	
@@ -84,6 +86,8 @@ public interface InterfaceBD
 	public void deleteOrcamento(Orcamento orcamento);
 	
 	public Orcamento deleteOrcamentoPorID(int id);
+	
+	public ArrayList<Orcamento> getOrcamentos();
 	
 	
 	//CRUD Transacao

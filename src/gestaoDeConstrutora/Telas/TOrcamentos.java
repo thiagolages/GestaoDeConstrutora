@@ -6,6 +6,7 @@
 package gestaoDeConstrutora.Telas;
 
 import gestaoDeConstrutora.BancoDeDados.BD;
+import gestaoDeConstrutora.SubsistemaOrcamento.*;
 
 /**
  *
@@ -16,7 +17,11 @@ public class TOrcamentos extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
-    public TOrcamentos() {
+	
+	private ISubsistemaOrcamento subsistemaOrcamento;
+	
+    public TOrcamentos(ISubsistemaOrcamento subsistemaOrcamento) {
+    	this.subsistemaOrcamento = subsistemaOrcamento;
         initComponents();
     }
 
@@ -176,7 +181,9 @@ public class TOrcamentos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TOrcamentos().setVisible(true);
+            	SubsistemaOrcamento subsistemaOrcamento = new SubsistemaOrcamento(new BD());
+                TOrcamentos orcamentos = new TOrcamentos(subsistemaOrcamento);
+                orcamentos.setVisible(true);
             }
         });
     }

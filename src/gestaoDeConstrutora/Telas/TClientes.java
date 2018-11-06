@@ -20,10 +20,10 @@ public class TClientes extends javax.swing.JFrame {
      * Creates new form Home
      */
 	private ArrayList<Cliente> clientes;
-	private SubsistemaClientes subsistemaClientes;
+	private ISubsistemaClientes subsistemaClientes;
 	
 	
-    public TClientes(SubsistemaClientes subsistemaClientes) {
+    public TClientes(ISubsistemaClientes subsistemaClientes) {
     	this.subsistemaClientes = subsistemaClientes;
     	this.clientes = this.subsistemaClientes.pesquisaClientePeloNome("");
         initComponents();

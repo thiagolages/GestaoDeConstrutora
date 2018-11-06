@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import gestaoDeConstrutora.BancoDeDados.InterfaceBD;
 
-public class SubsistemaFuncionarios {
+public class SubsistemaFuncionarios implements ISubsistemaFuncionarios {
 	
 	// Atributos
 	public ArrayList<Funcionario> funcionarios;

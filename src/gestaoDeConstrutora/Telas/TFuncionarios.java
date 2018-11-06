@@ -23,9 +23,9 @@ public class TFuncionarios extends javax.swing.JFrame {
      */
 	
 	private ArrayList<Funcionario> funcionarios;
-	private SubsistemaFuncionarios subsistemaFuncionarios;
+	private ISubsistemaFuncionarios subsistemaFuncionarios;
 	
-    public TFuncionarios(SubsistemaFuncionarios subsistemaFuncionarios) {
+    public TFuncionarios(ISubsistemaFuncionarios subsistemaFuncionarios) {
     	this.subsistemaFuncionarios = subsistemaFuncionarios;
     	this.funcionarios = this.subsistemaFuncionarios.pesquisaFuncionarioPeloNome("");
         initComponents();

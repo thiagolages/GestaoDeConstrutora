@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import gestaoDeConstrutora.BancoDeDados.InterfaceBD;
 import gestaoDeConstrutora.SubsistemaObras.Obra;
 
-public class SubsistemaClientes {
+public class SubsistemaClientes implements ISubsistemaClientes {
 	
 	private InterfaceBD bancoDeDados;
 	public ArrayList<Cliente> clientes;

@@ -9,6 +9,8 @@ import gestaoDeConstrutora.BancoDeDados.BD;
 import gestaoDeConstrutora.BancoDeDados.InterfaceBD;
 import gestaoDeConstrutora.SubsistemaClientes.SubsistemaClientes;
 import gestaoDeConstrutora.SubsistemaFuncionarios.SubsistemaFuncionarios;
+import gestaoDeConstrutora.SubsistemaObras.SubsistemaObras;
+import gestaoDeConstrutora.SubsistemaOrcamento.SubsistemaOrcamento;
 
 /**
  *
@@ -147,8 +149,8 @@ public class THome extends javax.swing.JFrame {
 
     private void obrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obrasActionPerformed
         // TODO add your handling code here:
-        
-        TObras obra = new TObras();
+        SubsistemaObras subsistemaObras = new SubsistemaObras(new BD());
+        TObras obra = new TObras(subsistemaObras);
         obra.setVisible(true);
         dispose();
 
@@ -158,7 +160,8 @@ public class THome extends javax.swing.JFrame {
 
     private void orcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orcamentoActionPerformed
         // TODO add your handling code here:
-        TOrcamentos orc = new TOrcamentos();
+    	SubsistemaOrcamento subsistemaOrcamento = new SubsistemaOrcamento(new BD());
+        TOrcamentos orc = new TOrcamentos(subsistemaOrcamento);
         orc.setVisible(true);
         dispose();
     }//GEN-LAST:event_orcamentoActionPerformed

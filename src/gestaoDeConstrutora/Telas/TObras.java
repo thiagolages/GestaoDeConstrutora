@@ -1,11 +1,14 @@
 package gestaoDeConstrutora.Telas;
 
 import gestaoDeConstrutora.BancoDeDados.BD;
+import gestaoDeConstrutora.SubsistemaObras.*;
 
 public class TObras extends javax.swing.JFrame {
 
+	private ISubsistemaObras subsistemaObras;
    
-    public TObras() {
+    public TObras(ISubsistemaObras subsistemaObras) {
+    	this.subsistemaObras = subsistemaObras;
         initComponents();
     }
 
@@ -161,7 +164,9 @@ public class TObras extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TObras().setVisible(true);
+            	SubsistemaObras subsistemaObras = new SubsistemaObras(new BD());
+                TObras obra = new TObras(subsistemaObras);
+                obra.setVisible(true);
             }
         });
     }

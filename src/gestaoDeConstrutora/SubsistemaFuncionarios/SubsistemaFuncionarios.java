@@ -13,7 +13,7 @@ public class SubsistemaFuncionarios implements ISubsistemaFuncionarios {
 	// Construtores
 	public SubsistemaFuncionarios(InterfaceBD bancoDeDados) {
 		this.bancoDeDados = bancoDeDados;
-		this.funcionarios = bancoDeDados.getFuncionarios();
+		this.funcionarios = this.bancoDeDados.getFuncionarios();
 	}
 	
 	// Metodos publicos

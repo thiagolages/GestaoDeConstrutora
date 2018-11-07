@@ -12,7 +12,7 @@ public class SubsistemaClientes implements ISubsistemaClientes {
 	
 	public SubsistemaClientes(InterfaceBD bancoDeDados) {
 		this.bancoDeDados = bancoDeDados;
-		this.clientes = bancoDeDados.getClientes();
+		this.clientes = this.bancoDeDados.getClientes();
 	}
 	
 	public ArrayList<Cliente> pesquisaClientePeloNome(String nomeDoCliente) {

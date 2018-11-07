@@ -30,5 +30,8 @@ public class Funcionario extends Pessoa{
 	public String getDepartamento() {
 		return departamento;
 	}
-	
+
+	public Date getDataAdmissao() {
+		return dataAdmissao;
+	}	
 }

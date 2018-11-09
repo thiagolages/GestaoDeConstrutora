@@ -42,12 +42,12 @@
                       <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                       <Component id="funcionarios_icon" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                      <Component id="funcionarios" min="-2" pref="111" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                      <Component id="funcionarios" min="-2" pref="139" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="clientes_icon" min="-2" max="-2" attributes="0"/>
                   <Component id="clientes" min="-2" max="-2" attributes="0"/>
@@ -86,7 +86,7 @@
                   <Component id="obras" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="orcamento" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="31" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="funcionarios_icon" min="-2" max="-2" attributes="0"/>
@@ -105,6 +105,11 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JLabel" name="cabecalho">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/gestaoDeConstrutora/Telas/cabecalho2 (1).png"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
     </Component>
@@ -141,12 +146,32 @@
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="orcamento_icon">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/gestaoDeConstrutora/Telas/orc.png"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="funcionarios_icon">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/gestaoDeConstrutora/Telas/func.png"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="obras_icon">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/gestaoDeConstrutora/Telas/obras.png"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="clientes_icon">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/gestaoDeConstrutora/Telas/clientes.png"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

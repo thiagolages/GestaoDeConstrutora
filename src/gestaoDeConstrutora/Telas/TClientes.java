@@ -48,13 +48,15 @@ public class TClientes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         info_func = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
-        ArrayList<javax.swing.JLabel> labels  = new ArrayList<javax.swing.JLabel>(); 
-        
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(209, 95, 95));
 
-        selecione_obra.setText("Filtrar cliente:");
+        cabecalho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestaoDeConstrutora/Telas/cabecalho2 (1).png"))); // NOI18N
+
+        func_icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestaoDeConstrutora/Telas/clientes.png"))); // NOI18N
+
+        selecione_obra.setText("Digite o nome do Cliente:");
 
         pesquisar.setText("Pesquisar");
         pesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -71,17 +73,10 @@ public class TClientes extends javax.swing.JFrame {
         });
 
         info_func.setColumns(20);
-        info_func.setRows(10);
+        info_func.setRows(5);
         jScrollPane1.setViewportView(info_func);
-        
-        int i;
-        for (i=0; i< this.clientes.size(); i++) {
-        	info_func.append(this.clientes.get(i).getNome() + "\n");
-        }
-        
-        
 
-        jLabel1.setText("Clientes:");
+        jLabel1.setText("Informações:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,7 +126,7 @@ public class TClientes extends javax.swing.JFrame {
                         .addComponent(busca_func, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(pesquisar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)

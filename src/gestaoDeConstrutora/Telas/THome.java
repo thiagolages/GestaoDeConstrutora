@@ -52,6 +52,8 @@ public class THome extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(209, 95, 95));
 
+        cabecalho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestaoDeConstrutora/Telas/cabecalho2 (1).png"))); // NOI18N
+
         obras.setText("Obras");
         obras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +82,14 @@ public class THome extends javax.swing.JFrame {
             }
         });
 
+        orcamento_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestaoDeConstrutora/Telas/orc.png"))); // NOI18N
+
+        funcionarios_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestaoDeConstrutora/Telas/func.png"))); // NOI18N
+
+        obras_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestaoDeConstrutora/Telas/obras.png"))); // NOI18N
+
+        clientes_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestaoDeConstrutora/Telas/clientes.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,9 +108,9 @@ public class THome extends javax.swing.JFrame {
                         .addGap(109, 109, 109)
                         .addComponent(funcionarios_icon))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(funcionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(138, 138, 138)
+                        .addGap(72, 72, 72)
+                        .addComponent(funcionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(127, 127, 127)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(clientes_icon)
                     .addComponent(clientes))
@@ -132,7 +142,7 @@ public class THome extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(obras)
                     .addComponent(orcamento))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(funcionarios_icon)
